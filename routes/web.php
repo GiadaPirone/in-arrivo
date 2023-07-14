@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\TypeController;
+use Database\Seeders\TechnologySeeder;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,6 +34,7 @@ Route::middleware(['auth'])
 
     Route::resource('projects', ProjectController::class);
     Route::resource('types', TypeController::class);
+    Route::resource('technologies', TechnologySeeder::class);
 });
 
 require __DIR__.'/auth.php';

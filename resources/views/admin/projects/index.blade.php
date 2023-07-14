@@ -11,7 +11,7 @@
 
                 <div class="card-body">
                     <h5 class="card-title">{{ $project->title }}</h5>
-                    <p>{{$project->description}}</p>
+                    {{-- <p>{{$project->description}}</p> --}}
                     <ul>
 
                         @foreach ($project->technologies as $technology)

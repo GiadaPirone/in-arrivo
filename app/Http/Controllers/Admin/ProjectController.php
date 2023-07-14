@@ -95,6 +95,11 @@ class ProjectController extends Controller
     public function update(UpdateProjectRequest $request, Project $project)
     {
         $data = $request->validated();
+
+
+        $imgPath= Storage::put('uploads', $data['image']);
+        $data['image'] = $imgPath;
+
         $project->fill($data);
         $project->update();
 

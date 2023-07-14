@@ -4,7 +4,7 @@
 
 <h1>Modifica un Progetto</h1>
 
-    <form action="{{route("admin.projects.update", $project->id)}}" method="POST" class="needs-validation">
+    <form action="{{route("admin.projects.update", $project->id)}}" method="POST" class="needs-validation"  enctype="multipart/form-data">
         @csrf
         @method("PUT")
 
@@ -44,7 +44,7 @@
         {{-- immagine --}}
         <div class="mb-3">
             <label for="image" class="form-label">Inserisci URL Img</label>
-            <input type="text" class="form-control @error('image') is-invalid @enderror " id="image" name="image" aria-describedby="emailHelp" value="{{old("image") ?? $project->image}}">
+            <input type="file" class="form-control @error('image') is-invalid @enderror " id="image" name="image" aria-describedby="emailHelp" value="">
 
             @error("thumb")
                 <div class="invalid-feedback">{{$message}}</div>
