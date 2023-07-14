@@ -8,6 +8,9 @@ use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Type;
 use App\Models\Technology;
+use Illuminate\Contracts\Cache\Store;
+use Illuminate\Session\Store as SessionStore;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -45,6 +48,10 @@ class ProjectController extends Controller
         // dump($request->all());
         $data = $request->validated();
         
+
+        $imgPath= Storage::put('uploads', $data['image']);
+        $data['image'] = $imgPath;
+
         $newProject = new Project();
         $newProject->fill($data);        
         $newProject->save();

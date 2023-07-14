@@ -4,7 +4,7 @@
 
 <h1>Crea Un Nuovo Progetto</h1>
 
-    <form action="{{route("admin.projects.store")}}" method="POST" class="needs-validation">
+    <form action="{{route("admin.projects.store")}}" method="POST" class="needs-validation" enctype="multipart/form-data">
         @csrf
 
         {{-- titolo --}}
@@ -65,8 +65,8 @@
 
         {{-- immagine --}}
         <div class="mb-3">
-            <label for="image" class="form-label">Inserisci URL Img</label>
-            <input type="text" class="form-control @error('image') is-invalid @enderror " id="image" name="image" aria-describedby="emailHelp">
+            <label for="image" class="form-label">Inserisci immagine</label>
+            <input type="file" class="form-control @error('image') is-invalid @enderror " id="image" name="image" aria-describedby="emailHelp">
 
             @error("thumb")
                 <div class="invalid-feedback">{{$message}}</div>

@@ -25,7 +25,7 @@ class StoreProjectRequest extends FormRequest
     {
         return [
            "title" =>"required|min:4|max:100",
-           "image" =>"url|max:65535",
+           "image" =>"image|max: 100000",
            "description" =>"required|min:5|max:65535",
            "type_id" => "exists:types,id",
            "technologies" => "nullable|exists:technologies,id"
@@ -38,7 +38,7 @@ class StoreProjectRequest extends FormRequest
             "title.required"=> "il titolo è obbligatorio",
             "title.min"=> "il titolo deve avere almeno :min caratteri",
 
-            "image.max"=>"il percorso img max 65535 caratteri",
+            "image.max"=>"il percorso img max: caratteri",
 
             "description.min"=> "Descrizione di almeno :min caratteri",
             "description.max"=> "Descrizione di massimi :max caratteri",
